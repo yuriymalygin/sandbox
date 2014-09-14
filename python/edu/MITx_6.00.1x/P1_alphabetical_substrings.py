@@ -7,7 +7,7 @@ def longest_substring(s):
     ss_end = 0
 
     for position in range(0,len(s)):
-        start_position = stop_position =position
+        start_position = stop_position = position
         while stop_position < len(s) - 1:
             if s[stop_position] <= s[stop_position + 1]:
                 stop_position += 1
