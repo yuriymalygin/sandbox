@@ -21,9 +21,16 @@ sys-kernel/genkernel
 sys-kernel/gentoo-sources
 sys-process/cronie
 www-client/google-chrome
+x11-apps/setxkbmap
+x11-apps/xdpyinfo
+x11-apps/xev
 x11-base/xorg-server
+x11-misc/arandr
+x11-misc/notification-daemon
 x11-misc/obconf
 x11-misc/slim
+x11-misc/xclip
+x11-misc/xsetleds
 x11-terms/rxvt-unicode
 x11-themes/gnome-icon-theme
 x11-wm/openbox
