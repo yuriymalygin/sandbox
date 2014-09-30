@@ -5,6 +5,11 @@ app-misc/mc
 app-portage/eix
 app-portage/elogv
 app-portage/gentoolkit
+media-fonts/artwiz-aleczapka-en
+media-fonts/dejavu
+media-fonts/droid
+media-fonts/terminus-font
+media-fonts/ubuntu-font-family
 net-misc/dhcpcd
 net-wireless/wpa_supplicant
 sys-apps/mlocate
