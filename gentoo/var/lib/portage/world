@@ -10,7 +10,15 @@ media-fonts/dejavu
 media-fonts/droid
 media-fonts/terminus-font
 media-fonts/ubuntu-font-family
+net-misc/cfengine
+net-misc/clusterssh
 net-misc/dhcpcd
+net-misc/ipcalc
+net-misc/netkit-telnetd
+net-misc/ntp
+net-misc/openconnect
+net-misc/openvpn
+net-misc/vpnc
 net-wireless/wpa_supplicant
 sys-apps/mlocate
 sys-apps/pciutils
