@@ -1,10 +1,12 @@
 app-admin/sudo
 app-admin/syslog-ng
 app-editors/vim
+app-emulation/emul-linux-x86-java
 app-misc/mc
 app-portage/eix
 app-portage/elogv
 app-portage/gentoolkit
+dev-java/oracle-jdk-bin
 media-fonts/artwiz-aleczapka-en
 media-fonts/dejavu
 media-fonts/droid
