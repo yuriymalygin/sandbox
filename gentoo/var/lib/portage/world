@@ -1,3 +1,4 @@
+app-admin/eselect-timezone
 app-admin/keepassx
 app-admin/sudo
 app-admin/syslog-ng
@@ -25,7 +26,9 @@ media-video/mpv
 net-analyzer/mtr
 net-analyzer/nmap
 net-dns/bind-tools
+net-firewall/iptables
 net-fs/cifs-utils
+net-fs/davfs2
 net-im/skype
 net-misc/cfengine
 net-misc/clusterssh
@@ -36,7 +39,9 @@ net-misc/ntp
 net-misc/openconnect
 net-misc/openvpn
 net-misc/vpnc
+net-p2p/transmission
 net-wireless/wpa_supplicant
+sci-calculators/galculator
 sys-apps/mlocate
 sys-apps/pciutils
 sys-apps/usbutils
@@ -44,6 +49,7 @@ sys-boot/grub
 sys-firmware/iwl1000-ucode
 sys-kernel/genkernel
 sys-kernel/gentoo-sources
+sys-power/powertop
 sys-process/cronie
 www-client/google-chrome
 x11-apps/setxkbmap
