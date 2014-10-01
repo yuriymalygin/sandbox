@@ -1,5 +1,9 @@
+app-admin/keepassx
 app-admin/sudo
 app-admin/syslog-ng
+app-arch/atool
+app-arch/lzop
+app-arch/unzip
 app-editors/vim
 app-emulation/emul-linux-x86-java
 app-misc/mc
@@ -7,6 +11,7 @@ app-portage/eix
 app-portage/elogv
 app-portage/gentoolkit
 dev-java/oracle-jdk-bin
+dev-tcltk/expect
 media-fonts/artwiz-aleczapka-en
 media-fonts/dejavu
 media-fonts/droid
@@ -17,6 +22,11 @@ media-gfx/imagemagick
 media-libs/exiftool
 media-sound/alsa-utils
 media-video/mpv
+net-analyzer/mtr
+net-analyzer/nmap
+net-dns/bind-tools
+net-fs/cifs-utils
+net-im/skype
 net-misc/cfengine
 net-misc/clusterssh
 net-misc/dhcpcd
