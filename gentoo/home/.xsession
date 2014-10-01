@@ -7,7 +7,7 @@ setxkbmap -layout 'us, ru' -option 'grp:caps_toggle,grp_led:caps,terminate:ctrl_
 xrdb -load .Xdefaults &
 
 # Turning on additional monitor (if connected)
-xrandr | grep -q 'HDMI1 connected' && xrandr --output LVDS1 --off
+xrandr | grep -qE 'HDMI.* connected' && xrandr --output LVDS1 --off
 
 # Set background image 
 feh --bg-tile ~/.background.png
