@@ -1,0 +1,79 @@
+alignment		top_right
+background              yes
+update_interval         1
+no_buffers		no
+
+# Tune for xcompmgr
+own_window		yes
+own_window_type		desktop
+own_window_transparent	yes
+own_window_colour	black
+double_buffer 		yes
+
+default_color           lightgray
+default_shade_color     black
+default_outline_color   black
+#color0			lightgray
+color0			white
+color1			ddaa00
+color2			darkgray
+#color2			black
+draw_shades             no 
+draw_borders            no
+gap_x                   2
+gap_y                   2
+uppercase               no
+use_xft			yes
+xftfont			snap-8
+format_human_readable	yes
+maximum_width		300 
+
+TEXT
+#${font terminus:size=24}${color0}Today:${color}$alignr${exec date}$font
+${image ~/.gentoo.png -p 0,15}Top processes $hr
+${offset 50}${color2}NAME $alignr PID    CPU    MEM  ${color}
+${offset 50}${top name 1} $alignr ${top pid 1} ${top cpu 1} ${top mem 1} %
+${offset 50}${top name 2} $alignr ${top pid 2} ${top cpu 2} ${top mem 2} %
+${offset 50}${top name 3} $alignr ${top pid 3} ${top cpu 3} ${top mem 3} %
+${offset 50}${top name 4} $alignr ${top pid 4} ${top cpu 4} ${top mem 4} %
+
+LEDS $hr
+${exec xsetleds -show | awk '{print $1,$2,$3,$4}'}
+
+FAN Speed and Temperature $hr
+${color0}FAN: ${acpifan} ${color0}BAT: ${color}NULL ${color0}CPU: ${color}NULL
+
+Perfomance $hr
+${color0}RAM${color} ($memmax)${color0} Usage:${color} $memperc% $membar
+${color0}CPU-freq${color} (${freq}MHz)${color0} Usage:${color} ${cpu cpu0}% ${cpubar cpu0}
+${color0}${cpugraph cpu0 20,320 ffffff}${color}
+${color0}CPU0 ${color}${cpubar cpu1}
+${color0}CPU1 ${color}${offset 3}${cpubar cpu2}
+${color0}CPU2 ${color}${cpubar cpu3}
+${color0}CPU3 ${color}${cpubar cpu4}
+${color0}Load average:${color} ${loadavg}
+${color0}${loadgraph 20,320 ffffff}${color}
+
+File systems $hr
+${color0}/${offset 40}${color}${fs_used /}/${fs_size /}$alignc${fs_bar /}
+${color0}/boot${offset 14}${color}${fs_used /boot}/${fs_size /boot}$alignc${fs_bar /boot}
+${color0}/home${offset 8}${color}${fs_used /home}/${fs_size /home}$alignc${fs_bar /home}
+${color0}/tmp${offset 18}${color}${fs_used /tmp}/${fs_size /tmp}$alignc${fs_bar /tmp}
+${color0}Disk I/O status:${color}
+${color0}Read:${color} ${diskio_read /dev/sda}$alignr${color0}Write:${color} ${diskio_write /dev/sda}
+${color0}${diskiograph_read /dev/sda 20,145 ffffff -l}$alignr${diskiograph_write /dev/sda 20,145 ffffff -l}${color}
+
+Battery $hr
+${color0}ac-status:${color} ${acpiacadapter} ${alignr}${color0}time:${color} ${battery_time BAT1}
+${color0}BAT1:${color} ${battery_percent BAT1}% ${battery_bar BAT1}
+${color0}BAT2:${color} ${battery_percent BAT2}% ${battery_bar BAT2}
+
+Network $hr
+${if_up wlan0}${color0}In:${color} ${downspeed wlan0}${color0}$alignr${color0}Out:${color} ${upspeed wlan0}${else}${color0}In:${color} ${downspeed eth1}${color0}$alignr${color0}Out:${color} ${upspeed eth1}${endif}
+${if_up wlan0}${color0}${downspeedgraph wlan0 20,145 ffffff}$alignr${upspeedgraph wlan0 20,145 ffffff}${color}${else}${color0}${downspeedgraph eth1 20,145 ffffff}$alignr${upspeedgraph eth1 20,145 ffffff}${color}${endif}
+Network Interfaces $hr
+${color1}essid:${color} ${wireless_essid wlan0} ${color0}quality:${color} ${wireless_link_qual_perc wlan0}% ${wireless_link_bar wlan0}
+${color1}wireless${alignr}${color0}IP:${color} ${addr wlan0} ${color0}TRAF:${color} ${totaldown wlan0}/${totalup wlan0}
+${color1}wired${alignr}${color0}IP:${color} ${addr eth0} ${color0}TRAF:${color} ${totaldown eth0}/${totalup eth0}
+${color1}usb-wired${alignr}${color0}IP:${color} ${addr eth1} ${color0}TRAF:${color} ${totaldown eth1}/${totalup eth1}
+${color1}ipsec${alignr}${color0}IP:${color} ${addr vpn0} ${color0}TRAF:${color} ${totaldown vpn0}/${totalup vpn0}
