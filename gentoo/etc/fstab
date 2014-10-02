@@ -1,0 +1,9 @@
+# SSD
+/dev/sda1   /     ext4    noatime           0 1
+
+# TMPFS
+tmpfs       /tmp  tmpfs   size=2G,mode=777  0 0
+tmpfs       /run  tmpfs   size=5M           0 0
+
+# WEBDAV
+https://webdav.cloud.mail.ru/   /cloud  davfs noauto  0 0
