@@ -1,0 +1,7 @@
+modules="wpa_supplicant"
+wpa_supplicant_eth1="-Dwired -c/etc/wpa_supplicant/wpa_mailru.conf"
+wpa_supplicant_wlan0="-Dwext -c/etc/wpa_supplicant/wpa_other.conf"
+
+config_eth0="dhcp"
+config_eth1="dhcp"
+config_wlan0="dhcp"
