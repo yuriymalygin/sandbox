@@ -8,6 +8,7 @@ app-arch/lzop
 app-arch/unzip
 app-editors/vim
 app-emulation/emul-linux-x86-java
+app-laptop/thinkfan
 app-laptop/tp_smapi
 app-misc/mc
 app-portage/eix
