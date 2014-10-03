@@ -1,32 +1,33 @@
-alignment		top_right
+alignment               top_right
 background              yes
 update_interval         1
-no_buffers		no
+no_buffers              no
 
 # Tune for xcompmgr
-own_window		yes
-own_window_type		desktop
-own_window_transparent	yes
-own_window_colour	black
-double_buffer 		yes
+own_window              yes
+own_window_type         desktop
+own_window_transparent  yes
+own_window_colour       black
+double_buffer           yes
 
 default_color           lightgray
 default_shade_color     black
 default_outline_color   black
-#color0			lightgray
-color0			white
-color1			ddaa00
-color2			darkgray
-#color2			black
+#color0                  lightgray
+color0			            white
+color1                  ddaa00
+color2                  darkgray
+#color2                  black
 draw_shades             no 
 draw_borders            no
 gap_x                   2
 gap_y                   2
 uppercase               no
-use_xft			yes
-xftfont			snap-8
-format_human_readable	yes
-maximum_width		300 
+use_xft                 yes
+xftfont                 snap-8
+format_human_readable   yes
+maximum_width           300
+default_graph_size      299 20
 
 TEXT
 #${font terminus:size=24}${color0}Today:${color}$alignr${exec date}$font
@@ -41,18 +42,18 @@ LEDS $hr
 ${exec xsetleds -show | awk '{print $1,$2,$3,$4}'}
 
 FAN Speed and Temperature $hr
-${color0}FAN: ${acpifan} ${color0}BAT: ${color}NULL ${color0}CPU: ${color}NULL
+${color0}FAN: ${color}${ibm_fan}RPM $alignr${color0}BAT: ${color}${smapi_bat_temp 0}C ${color0}PHY: ${color}${platform coretemp.0 temp 1}C ${color0}CPU0: ${color}${platform coretemp.0 temp 2}C ${color0}CPU1: ${color}${platform coretemp.0 temp 3}C
 
 Perfomance $hr
 ${color0}RAM${color} ($memmax)${color0} Usage:${color} $memperc% $membar
 ${color0}CPU-freq${color} (${freq}MHz)${color0} Usage:${color} ${cpu cpu0}% ${cpubar cpu0}
-${color0}${cpugraph cpu0 20,320 ffffff}${color}
+${color0}${cpugraph cpu0 ffffff}${color}
 ${color0}CPU0 ${color}${cpubar cpu1}
 ${color0}CPU1 ${color}${offset 3}${cpubar cpu2}
 ${color0}CPU2 ${color}${cpubar cpu3}
 ${color0}CPU3 ${color}${cpubar cpu4}
 ${color0}Load average:${color} ${loadavg}
-${color0}${loadgraph 20,320 ffffff}${color}
+${color0}${loadgraph ffffff}${color}
 
 File systems $hr
 ${color0}/${offset 40}${color}${fs_used /}/${fs_size /}$alignc${fs_bar /}
@@ -64,9 +65,9 @@ ${color0}Read:${color} ${diskio_read /dev/sda}$alignr${color0}Write:${color} ${d
 ${color0}${diskiograph_read /dev/sda 20,145 ffffff -l}$alignr${diskiograph_write /dev/sda 20,145 ffffff -l}${color}
 
 Battery $hr
-${color0}ac-status:${color} ${acpiacadapter} ${alignr}${color0}time:${color} ${battery_time BAT1}
-${color0}BAT1:${color} ${battery_percent BAT1}% ${battery_bar BAT1}
-${color0}BAT2:${color} ${battery_percent BAT2}% ${battery_bar BAT2}
+${color0}ac-status:${color} ${acpiacadapter} ${alignr}${color0}time:${color} ${battery_time BAT0}
+${color0}BAT0:${color} ${battery_percent BAT0}% ${battery_bar BAT0}
+${color0}${execgraph cat /sys/devices/platform/smapi/BAT0/remaining_percent}
 
 Network $hr
 ${if_up wlan0}${color0}In:${color} ${downspeed wlan0}${color0}$alignr${color0}Out:${color} ${upspeed wlan0}${else}${color0}In:${color} ${downspeed eth1}${color0}$alignr${color0}Out:${color} ${upspeed eth1}${endif}
