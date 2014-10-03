@@ -45,6 +45,7 @@ net-misc/vpnc
 net-p2p/transmission
 net-wireless/wpa_supplicant
 sci-calculators/galculator
+sys-apps/ethtool
 sys-apps/mlocate
 sys-apps/pciutils
 sys-apps/usbutils
