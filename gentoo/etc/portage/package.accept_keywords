@@ -1,0 +1,9 @@
+www-client/google-chrome    ~amd64
+app-admin/eselect-timezone  ~amd64
+=net-misc/cfengine-3.4.5    ~amd64
+app-vim/cfengine-syntax     ~amd64
+net-im/skype                ~amd64
+=net-misc/openconnect-6.00  ~amd64
+  =net-libs/gnutls-3.3.8    ~amd64
+  =sys-apps/texinfo-5.2     ~amd64
+app-laptop/tp_smapi         ~amd64
