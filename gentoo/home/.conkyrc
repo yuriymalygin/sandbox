@@ -14,7 +14,7 @@ default_color           lightgray
 default_shade_color     black
 default_outline_color   black
 #color0                  lightgray
-color0			            white
+color0                  white
 color1                  ddaa00
 color2                  darkgray
 #color2                  black
