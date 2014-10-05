@@ -5,3 +5,7 @@
   =media-video/libav-9.14 threads
 
 app-admin/conky imlib thinkpad
+
+net-analyzer/mtr -gtk
+
+net-misc/openvpn iproute2
