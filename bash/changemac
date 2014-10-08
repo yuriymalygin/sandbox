@@ -1,0 +1,15 @@
+#!/bin/sh
+# Change MAC-addres
+# Show current MAC on eth0 : ifconfig eth0 | awk '/ether/{print $2}'
+
+INTERFACE='eth0'
+IFCONFIG=$(which ifconfig)
+ORIGINAL_MAC='f0:de:f1:71:dc:a8'
+VENDOR_PREFIX='f0:de:f1'
+NEW_MAC=$(dd if=/dev/random bs=1 count=3 2>/dev/null | hexdump -C | head -n1 | awk -v prefix=$VENDOR_PREFIX '{print prefix":"$2":"$3":"$4}')
+
+case $1 in
+	change) $IFCONFIG $INTERFACE hw ether $NEW_MAC && echo 'New MAC:' $NEW_MAC ;;
+	restore) $IFCONFIG $INTERFACE hw ether $ORIGINAL_MAC && echo 'Restore original MAC:' $ORIGINAL_MAC ;;
+	*) echo "Usage: $0 {change|restore}" ;;
+esac
