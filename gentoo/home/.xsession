@@ -21,5 +21,8 @@ urxvtd -q -o -f &
 # Run ssh-agent for key-forwarding
 eval $(ssh-agent -s)
 
+# Auto lock screen if changing position in space
+~/.bin/hdaps_screenlock &
+
 # Run WM
 exec openbox-session
