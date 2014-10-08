@@ -1,0 +1,25 @@
+#!/bin/sh
+# Lock screen if laptop is changing position in space.
+#
+# Show current position: 'cat /sys/devices/platform/hdaps/position'
+# where first digit is LEVEL_H and second - LEVEL_V
+#
+# For begin change LEVEL_H and LEVEL_V
+
+LEVEL_H='511'
+LEVEL_V='523'
+THRESHOLD='10'
+HDAPS_INPUT='/sys/devices/platform/hdaps/position'
+LOCKER=$(which slimlock)
+
+while [ -a /sys/devices/platform/hdaps/position ]; do
+  CURRENT_LEVEL_H=$(awk -F[\)\(,] '{print $2}' $HDAPS_INPUT)
+  CURRENT_LEVEL_V=$(awk -F[\)\(,] '{print $3}' $HDAPS_INPUT)
+
+  [[ CURRENT_LEVEL_H -lt $(($LEVEL_H - $THRESHOLD)) ]] || 
+    [[ CURRENT_LEVEL_H -gt $(($LEVEL_H + $THRESHOLD)) ]] ||
+      [[ CURRENT_LEVEL_V -lt $(($LEVEL_V - $THRESHOLD)) ]] ||
+        [[ CURRENT_LEVEL_V -gt $(($LEVEL_V + $THRESHOLD)) ]] && $LOCKER 2>/dev/null
+
+  sleep 1
+done
