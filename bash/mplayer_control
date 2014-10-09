@@ -1,0 +1,13 @@
+#!/bin/sh
+# Bind this script on hotkeys to control mplayer from any window
+# To create named pipes(FIFO) see 'man mkfifo'
+# Run Mplayer: mplayer -input file=/path/to/fifo
+
+MPLAYER_FIFO='~/.mplayer/mplayer_control'
+
+case "$1" in
+  pause)  echo pause      > ${MPLAYER_FIFO} ;;
+  stop)   echo quit       > ${MPLAYER_FIFO} ;; 
+  prev)   echo pt_step -1 > ${MPLAYER_FIFO} ;;
+  next)   echo pt_step 1  > ${MPLAYER_FIFO} ;;
+esac
