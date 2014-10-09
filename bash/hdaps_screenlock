@@ -12,7 +12,7 @@ THRESHOLD='10'
 HDAPS_INPUT='/sys/devices/platform/hdaps/position'
 LOCKER=$(which slimlock)
 
-while [ -a /sys/devices/platform/hdaps/position ]; do
+while [ -a ${HDAPS_INPUT} ]; do
   CURRENT_LEVEL_H=$(awk -F[\)\(,] '{print $2}' $HDAPS_INPUT)
   CURRENT_LEVEL_V=$(awk -F[\)\(,] '{print $3}' $HDAPS_INPUT)
 
