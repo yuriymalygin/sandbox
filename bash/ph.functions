@@ -1,0 +1,78 @@
+#!/bin/sh
+#
+# FUNCTIONS
+
+# Suspend to RAM
+ph.suspend () {
+  sudo rc-service openconnect.vpn0 stop &
+  /usr/bin/slimlock 2>&1 > /dev/null &
+  echo mem | sudo tee /sys/power/state
+}
+
+# Create bonding from wired ports
+ph.bonding () {
+  BOND_MASTER="bond0"
+  BOND_SLAVES="eth0 eth1"
+  BOND_MODE="active-backup"
+
+  echo $BOND_MODE > /sys/class/net/$BOND_MASTER/bonding/mode
+  echo 100 > /sys/class/net/$BOND_MASTER/bonding/miimon
+  for iface in $BOND_SLAVES; do echo +$iface > /sys/class/net/$BOND_MASTER/bonding/slaves 2>/dev/null; done;
+  dhcpcd $BOND_MASTER
+}
+
+# Control Lenovo display brightness
+# $1 = 0..15 - brightness level (default 15)
+ph.Brightness () {
+  PLATFORM='/sys/class/backlight/acpi_video0/brightness'
+  CURRENT_BRIGHTNESS=$(cat $PLATFORM)
+  echo $(($CURRENT_BRIGHTNESS+$1)) | sudo tee $PLATFORM
+}
+
+# Control MacBookPro keyboard backlight
+# $1 = 255/0 - on/off backlight keyboard (default 0)
+ph.macbookKbdBacklight () {
+  PLATFORM='/sys/class/hwmon/hwmon0/device/leds/smc\:\:kbd_backlight/brightness'
+  CURRENT_KBD_BRIGHTNESS=$(cat $PLATFORM)
+  echo $(($CURRENT_KBD_BRIGHTNESS+$1)) | sudo tee $PLATFORM
+}
+
+# Control MacBookPro fans
+ph.macbookFans () {
+  MACBOOKHWMONDIR='/sys/class/hwmon/hwmon0/device'
+  MAXSPEEDFAN1=$(cat $MACBOOKHWMONDIR/fan1_max)
+  MAXSPEEDFAN2=$(cat $MACBOOKHWMONDIR/fan2_max)
+  MINSPEEDFAN1=$(cat $MACBOOKHWMONDIR/fan1_min)
+  MINSPEEDFAN2=$(cat $MACBOOKHWMONDIR/fan2_min)
+
+  echo 1 | sudo tee $MACBOOKHWMONDIR/fan1_manual | sudo tee $MACBOOKHWMONDIR/fan2_manual
+
+  case $1 in
+    auto)
+      echo 0 | sudo tee $MACBOOKHWMONDIR/fan1_manual | sudo tee $MACBOOKHWMONDIR/fan2_manual
+    ;;
+    max)
+      echo $MAXSPEEDFAN1 | sudo tee $MACBOOKHWMONDIR/fan1_output
+      echo $MAXSPEEDFAN2 | sudo tee $MACBOOKHWMONDIR/fan2_output
+    ;;
+    min)
+      echo $MINSPEEDFAN1 | sudo tee $MACBOOKHWMONDIR/fan1_output
+      echo $MINSPEEDFAN2 | sudo tee $MACBOOKHWMONDIR/fan2_output
+    ;;
+    *)
+    ;;
+esac
+}
+
+# Connect input devices to MacBookPro
+ph.macbookInputs () {
+  sudo rc-service bluetooth start 2>/dev/null
+
+  case $1 in
+    mouse) DEVICEADDR="B8:17:C2:AC:2A:87" ;;
+    keyboard) DEVICEADDR="60:C5:47:1D:BC:2D" ;;
+    *) ;;
+  esac
+
+  sudo bluez-test-input connect $DEVICEADDR
+}
