@@ -1,0 +1,14 @@
+#!/bin/sh
+# Take screenshot of window\area or root screen
+# Using 'import' from media-gfx/imagemagick
+
+STORAGE='/tmp/screenshots'
+DATE=$(date +%Y-%m-%d_%H:%M:%S)
+FILENAME="${STORAGE}/screenshot_${DATE}.png"
+
+[[ -d $STORAGE ]] || mkdir -p $STORAGE
+
+case $1 in
+  area) import $FILENAME ;;
+  *) import -window root $FILENAME ;;
+esac
