@@ -1,0 +1,9 @@
+#!/bin/sh
+# Quick translate selection using Google Translate
+
+ICON='/usr/share/icons/gnome/256x256/status/info.png'
+TEXT="$(xsel --output)"
+WGET="$(which wget) --user-agent='Mozilla/5.0' -qO -"
+QUERY="http://translate.google.com/translate_a/t?client=t&sl=auto&tl=ru&text=${TEXT}"
+
+[[ -z $TEXT ]] || notify-send -u critical --icon $ICON "$TEXT" "$($WGET "$QUERY" | awk -F\" '{print $2}')"
