@@ -233,15 +233,10 @@
     </keybind>
     <keybind key="Print">
       <action name="Execute">
-        <command>~/.bin/printscreen scr</command>
+        <command>~/.bin/printscreen</command>
       </action>
     </keybind>
     <keybind key="A-Print">
-      <action name="Execute">
-        <command>~/.bin/printscreen win</command>
-      </action>
-    </keybind>
-    <keybind key="C-Print">
       <action name="Execute">
         <command>~/.bin/printscreen area</command>
       </action>
