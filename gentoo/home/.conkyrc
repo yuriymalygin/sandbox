@@ -31,7 +31,7 @@ default_graph_size      299 20
 
 TEXT
 #${font terminus:size=24}${color0}Today:${color}$alignr${exec date}$font
-${image ~/.gentoo.png -p 0,15}Top processes $hr
+${image ~/.gentoo.png -p 0,11}Top processes $hr
 ${offset 50}${color2}NAME $alignr PID    CPU    MEM  ${color}
 ${offset 50}${top name 1} $alignr ${top pid 1} ${top cpu 1} ${top mem 1} %
 ${offset 50}${top name 2} $alignr ${top pid 2} ${top cpu 2} ${top mem 2} %
