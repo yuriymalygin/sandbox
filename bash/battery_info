@@ -1,0 +1,26 @@
+#!/bin/sh
+# Print information about laptop battery
+# To work need install app-laptop/tp_smapi
+
+SMAPIDIR='/sys/devices/platform/smapi'
+
+function tp_smapi_info() {
+  echo "$2 Battery ($1)"
+  echo 'Model:                  '$(cat $SMAPIDIR/$1/model)'-'$(cat $SMAPIDIR/$1/serial)
+  echo 'Barcode Number:         '$(cat $SMAPIDIR/$1/barcoding)
+  echo 'Manufacture Date:       '$(cat $SMAPIDIR/$1/manufacture_date)
+  echo 'Install Date:           '$(cat $SMAPIDIR/$1/first_use_date)
+  echo 'Charging Cycles:        '$(cat $SMAPIDIR/$1/cycle_count)
+  echo 'Design Capacity:        '$(cat $SMAPIDIR/$1/design_capacity)
+  echo 'Full Capacity:          '$(cat $SMAPIDIR/$1/last_full_capacity)
+  echo 'Current Capacity:       '$(cat $SMAPIDIR/$1/remaining_capacity)
+  echo 'Current Capacity (%):   '$(cat $SMAPIDIR/$1/remaining_percent)
+  echo 'Current Capacity (min): '$(cat $SMAPIDIR/$1/remaining_running_time)
+  echo 'Status:                 '$(cat $SMAPIDIR/$1/state)
+}
+
+echo 'ThinkPad SMAPI information'
+echo '--------------------------'
+
+[[ $(cat $SMAPIDIR/BAT0/state) != 'none' ]] && tp_smapi_info BAT0 Basic
+[[ $(cat $SMAPIDIR/BAT1/state) != 'none' ]] && tp_smapi_info BAT1 Additional 
