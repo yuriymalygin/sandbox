@@ -1,0 +1,22 @@
+#!/bin/sh
+# Take photo from webcam
+
+FILENAME="/tmp/photo_$(date +%Y-%m-%d_%H:%M:%S).png"
+IMAGEVIEWER=$(which feh)
+WEBCAM_INPUT='video0'
+WORKDIR=$(mktemp -d)
+
+if [ -e /dev/$WEBCAM_INPUT ]
+then
+  mpv --really-quiet -frames 5 --vo=image:format=png:outdir=$WORKDIR tv://$WEBCAM_INPUT 2>/dev/null
+  if [ -f $WORKDIR/00000005.png ]
+  then
+    mv $WORKDIR/00000005.png $FILENAME && rm -r $WORKDIR
+    echo 'Photo saved in file' $FILENAME
+    $IMAGEVIEWER $FILENAME
+  else
+    echo 'Error! No saved photo.'
+  fi
+else
+  echo 'Error! No such input device.'
+fi
