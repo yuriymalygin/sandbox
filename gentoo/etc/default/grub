@@ -19,7 +19,7 @@ GRUB_TIMEOUT=1
 #GRUB_TIMEOUT_STYLE=menu
 
 # Append parameters to the linux kernel command line
-GRUB_CMDLINE_LINUX="rootfstype=ext4"
+GRUB_CMDLINE_LINUX="rootfstype=ext4 quiet"
 #
 # Examples:
 #
