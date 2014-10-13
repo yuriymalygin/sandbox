@@ -23,6 +23,9 @@ HISTFILESIZE=${HISTSIZE}
 HISTCONTROL="ignorespace"
 HISTTIMEFORMAT="%F %T "
 
+# Programmable Completion for bash
+source /etc/profile.d/bash-completion.sh 
+
 ## Aliases
 ### Usability
 alias p='ping -a'

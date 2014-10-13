@@ -14,6 +14,7 @@ app-misc/mc
 app-portage/eix
 app-portage/elogv
 app-portage/gentoolkit
+app-shells/bash-completion
 dev-java/oracle-jdk-bin
 dev-tcltk/expect
 media-fonts/artwiz-aleczapka-en
