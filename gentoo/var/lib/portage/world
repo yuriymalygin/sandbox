@@ -42,6 +42,7 @@ net-misc/netkit-telnetd
 net-misc/ntp
 net-misc/openconnect
 net-misc/openvpn
+net-misc/rdesktop
 net-misc/vpnc
 net-p2p/transmission
 net-wireless/wpa_supplicant
