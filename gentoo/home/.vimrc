@@ -15,5 +15,8 @@ set shiftwidth=2
 set expandtab
 set smartindent
 
+" Mouse
+set mouse=a
+
 " CFEngine
 au BufRead,BufNewFile *.cf set ft=cfengine
