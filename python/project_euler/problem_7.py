@@ -22,9 +22,8 @@ def n_simple(x):
     while len(p) < x:
         if is_simple(i) and (i > int(p[-1])):
            p.extend([i])
-           print len(p)
         i += 1
     
-    return p
+    return p[-1]
 
 print n_simple(10001)
