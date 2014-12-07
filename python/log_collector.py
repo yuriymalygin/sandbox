@@ -5,6 +5,10 @@
 import os
 import gzip
 
+logdir = '/var/log/'
+ext = '.log'
+maxsize = 1000000
+
 def collector(path, extension, maxsize):
     bigfiles = []
 
@@ -29,5 +33,5 @@ def compress(fullpath):
     file_in.close()
 
 
-for file in collector('/var/log/','.log',1000000):
+for file in collector(logdir, ext, maxsize):
     compress(file)
