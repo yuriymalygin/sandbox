@@ -2,7 +2,7 @@
   =dev-lang/python-2.7.7 sqlite
 
 # media-video/mpv
-  =media-video/libav-9.14 threads
+  media-video/libav threads
 
 app-admin/conky imlib thinkpad
 
