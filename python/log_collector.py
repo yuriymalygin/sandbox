@@ -4,6 +4,7 @@
 
 import os
 import gzip
+import time
 
 logdir = '/var/log/'
 ext = '.log'
@@ -27,7 +28,7 @@ def compress(fullpath):
         os.makedirs(arch_dir)
 
     file_in = open(fullpath, 'rb')
-    file_out = gzip.open(arch_dir+filename+'.gz', 'wb')
+    file_out = gzip.open(arch_dir+filename+'_'+str(int(time.time()))+'.gz', 'wb')
     file_out.writelines(file_in)
     file_out.close()
     file_in.close()
