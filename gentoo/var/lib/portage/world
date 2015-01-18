@@ -16,6 +16,7 @@ app-portage/elogv
 app-portage/gentoolkit
 app-shells/bash-completion
 dev-java/oracle-jdk-bin
+dev-python/jedi
 dev-tcltk/expect
 media-fonts/artwiz-aleczapka-en
 media-fonts/dejavu
