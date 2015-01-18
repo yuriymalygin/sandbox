@@ -11,3 +11,5 @@ net-analyzer/mtr -gtk
 net-misc/openvpn iproute2
 
 net-p2p/transmission -gtk -qt4
+
+x11-terms/rxvt-unicode 256-color
