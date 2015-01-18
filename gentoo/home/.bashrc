@@ -26,6 +26,9 @@ HISTTIMEFORMAT="%F %T "
 # Programmable Completion for bash
 source /etc/profile.d/bash-completion.sh 
 
+# Shell options (see 'man shopt')
+shopt -s cdable_vars cdspell checkjobs
+
 ## Aliases
 ### Usability
 alias p='ping -a'
