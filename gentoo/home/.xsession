@@ -10,7 +10,7 @@ xrdb -load .Xdefaults &
 xrandr | grep -qE 'HDMI.* connected' && xrandr --output LVDS1 --off
 
 # Set background image 
-feh --bg-tile ~/.background.png
+feh --bg-tile ~/.background
 
 # Run Conky monitoring tool
 conky 2>/dev/null &
@@ -20,9 +20,6 @@ urxvtd -q -o -f &
 
 # Run ssh-agent for key-forwarding
 eval $(ssh-agent -s)
-
-# Auto lock screen if changing position in space
-~/.bin/hdaps_screenlock &
 
 # Run WM
 exec openbox-session
