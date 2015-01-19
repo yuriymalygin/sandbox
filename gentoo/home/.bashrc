@@ -33,7 +33,7 @@ shopt -s cdable_vars cdspell checkjobs
 ### Usability
 alias p='ping -a'
 alias v='feh --fullscreen'                                                                                                                                                                    
-alias S='ssh'
+alias S='TERM=xterm-256color; ssh'
 alias c='cssh'
 alias cal='cal --three --monday --color'
 alias ls='ls --human-readable --color=auto'
