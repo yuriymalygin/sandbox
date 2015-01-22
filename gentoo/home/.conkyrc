@@ -42,7 +42,7 @@ LEDS $hr
 ${exec xsetleds -show | awk '{print $1,$2,$3,$4}'}
 
 FAN Speed and Temperature $hr
-${color0}FAN: ${color}${ibm_fan}RPM $alignr${color0}BAT: ${color}${smapi_bat_temp 0}C ${color0}PHY: ${color}${platform coretemp.0 temp 1}C ${color0}CPU0: ${color}${platform coretemp.0 temp 2}C ${color0}CPU1: ${color}${platform coretemp.0 temp 3}C
+${color0}FAN: ${color}${ibm_fan}RPM $alignr${color0}BAT: ${color}${smapi_bat_temp 0}C ${color0}PHY: ${color}${platform coretemp.0/hwmon/hwmon0 temp 1}C ${color0}CPU0: ${color}${platform coretemp.0/hwmon/hwmon0 temp 2}C ${color0}CPU1: ${color}${platform coretemp.0/hwmon/hwmon0 temp 3}C
 
 Perfomance $hr
 ${color0}RAM${color} ($memmax)${color0} Usage:${color} $memperc% $membar
@@ -57,8 +57,6 @@ ${color0}${loadgraph ffffff}${color}
 
 File systems $hr
 ${color0}/${offset 40}${color}${fs_used /}/${fs_size /}$alignc${fs_bar /}
-${color0}/boot${offset 14}${color}${fs_used /boot}/${fs_size /boot}$alignc${fs_bar /boot}
-${color0}/home${offset 8}${color}${fs_used /home}/${fs_size /home}$alignc${fs_bar /home}
 ${color0}/tmp${offset 18}${color}${fs_used /tmp}/${fs_size /tmp}$alignc${fs_bar /tmp}
 ${color0}Disk I/O status:${color}
 ${color0}Read:${color} ${diskio_read /dev/sda}$alignr${color0}Write:${color} ${diskio_write /dev/sda}
@@ -67,7 +65,6 @@ ${color0}${diskiograph_read /dev/sda 20,145 ffffff -l}$alignr${diskiograph_write
 Battery $hr
 ${color0}ac-status:${color} ${acpiacadapter} ${alignr}${color0}time:${color} ${battery_time BAT0}
 ${color0}BAT0:${color} ${battery_percent BAT0}% ${battery_bar BAT0}
-${color0}${execgraph cat /sys/devices/platform/smapi/BAT0/remaining_percent}
 
 Network $hr
 ${if_up wlan0}${color0}In:${color} ${downspeed wlan0}${color0}$alignr${color0}Out:${color} ${upspeed wlan0}${else}${color0}In:${color} ${downspeed eth1}${color0}$alignr${color0}Out:${color} ${upspeed eth1}${endif}
@@ -77,4 +74,4 @@ ${color1}essid:${color} ${wireless_essid wlan0} ${color0}quality:${color} ${wire
 ${color1}wireless${alignr}${color0}IP:${color} ${addr wlan0} ${color0}TRAF:${color} ${totaldown wlan0}/${totalup wlan0}
 ${color1}wired${alignr}${color0}IP:${color} ${addr eth0} ${color0}TRAF:${color} ${totaldown eth0}/${totalup eth0}
 ${color1}usb-wired${alignr}${color0}IP:${color} ${addr eth1} ${color0}TRAF:${color} ${totaldown eth1}/${totalup eth1}
-${color1}ipsec${alignr}${color0}IP:${color} ${addr vpn0} ${color0}TRAF:${color} ${totaldown vpn0}/${totalup vpn0}
+${color1}ipsec${alignr}${color0}IP:${color} ${addr tun0} ${color0}TRAF:${color} ${totaldown tun0}/${totalup tun0}
