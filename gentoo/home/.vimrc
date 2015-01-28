@@ -8,6 +8,7 @@ autocmd! bufwritepost .vimrc source %
 " Better copy & paste
 set pastetoggle=<F2>
 set clipboard=unnamed
+set go+=a
 
 " Mouse
 set mouse=a
@@ -76,10 +77,13 @@ map <Leader>n <esc>:tabprev<CR>
 map <Leader>m <esc>:tabnext<CR>
 
 " Write the file and run it through python
-map <F10> :w<CR>:!php %<CR>
+map <F10> :w<CR>:!python2.7 %<CR>
+
+" Python syntax-aware code formatting
+map <F12> :FormatCode <CR>
 
 " Call autocompletion by Tab 
-imap <tab> <c-r>=WordCompletion()<cr>
+imap <tab> <C-R>=WordCompletion()<CR>
 
 " ============================================================================
 " Plugins 
@@ -104,3 +108,7 @@ let g:ctrlp_max_height = 30
 set wildignore+=*.pyc
 set wildignore+=*_build/*
 set wildignore+=*/coverage/*
+
+" Settings for vim-codefmt
+" SETUP: for i in maktaba codefmtlib codefmt; do git clone https://github.com/google/vim-$i.git ~/.vim/bundle/vim-$i; done
+" Use defaults
