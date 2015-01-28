@@ -1,0 +1,25 @@
+#!/bin/sh
+# Connect external monitor to laptop
+
+LAPTOPDISPLAY=LVDS1
+HDMIDISPLAY=HDMI2
+
+export DISPLAY=:0
+export XAUTHORITY=~ph/.Xauthority
+
+function connect(){
+    xrandr --output $HDMIDISPLAY --auto && xrandr --output $LAPTOPDISPLAY --off 
+}
+  
+function disconnect(){
+    xrandr --output $LAPTOPDISPLAY --auto && xrandr --output $HDMIDISPLAY --off 
+}
+
+# Check second monitor
+xrandr | grep --silent "$HDMIDISPLAY connected" && connect || disconnect
+
+# Reload background
+su ph -c 'feh --bg-scale ~ph/.background'
+
+#  Reload Conky position
+kill -HUP $(pidof conky)
