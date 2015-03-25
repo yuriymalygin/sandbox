@@ -261,6 +261,11 @@
         <command>slimlock</command>
       </action>
     </keybind>
+    <keybind key="W-l">
+      <action name="Execute">
+        <command>slimlock</command>
+      </action>
+    </keybind>
     <keybind key="Alt_R">
       <action name="Execute">
         <command>~/.bin/quick_translate</command>
