@@ -29,7 +29,6 @@ s = '\
 71636269561882670428252483600823257530420752963450'
 
 def product(x,pos_a):
-    global s
 
     pos_b = pos_a + x
     ss = list(s[pos_a:pos_b])

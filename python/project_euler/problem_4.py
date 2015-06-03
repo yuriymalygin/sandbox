@@ -8,7 +8,7 @@
 p = 0
 
 for x in range(100, 1000):
-    for y in range(100, 1000):
+    for y in range(x, 1000):
         z = str(x * y)
         if (z[:len(z)/2] == z[len(z)/2:][::-1]) and (z > p):
             p = z
