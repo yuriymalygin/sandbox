@@ -24,5 +24,3 @@ while True:
         print x
         break
     x += 2520
-
-# оптимизировать делители

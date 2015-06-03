@@ -25,6 +25,3 @@ while y < int(math.sqrt(x)):
     y += 1
 
 print z
-
-
-# Optimizirovat isSimple s vydeleniem pamyati
