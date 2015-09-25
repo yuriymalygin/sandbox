@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openbox_menu xmlns="http://openbox.org/3.4/menu">
+
+<menu id="system-menu" label="System">
+</menu>
+
+<menu id="root-menu" label="Openbox 3">
+	<separator label="Applications" />
+		<item label="Rxvt Unicode"><action name="Execute"><command>urxvt</command></action></item>
+ 	<separator label="Openbox" />
+		<item label="Configuration"><action name="Execute"><command>obconf</command><startupnotify><enabled>yes</enabled></startupnotify></action></item>
+		<item label="Reload"><action name="Reconfigure" /></item>
+		<item label="Exit"><action name="Exit"><prompt>yes</prompt></action></item>
+</menu>
+
+</openbox_menu>
