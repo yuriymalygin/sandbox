@@ -1,0 +1,54 @@
+!  Wombat colors
+
+*foreground             :	rgb:ff/ff/ff
+*background             :	rgb:16/16/16
+
+*color0                 :	rgb:16/16/16
+*color1                 :	rgb:e5/78/6d
+*color2                 :	rgb:ca/e6/82
+*color3                 :	rgb:ff/e1/61
+*color4                 :	rgb:52/83/d7
+*color5                 :	rgb:b6/98/d9
+*color6                 :	rgb:a8/c6/f2
+*color7                 :	rgb:f6/f3/e8
+*color8                 :	rgb:85/7B/6F
+*color9                 :	rgb:9d/2a/3a
+*color10                :	rgb:8b/be/34
+*color11                :	rgb:ff/c4/42
+*color12                :	rgb:3b/5d/9a
+*color13                :	rgb:a5/7a/c4
+*color14                :	rgb:5d/a7/e1
+*color15                :	rgb:d3/d7/cf
+
+! Xorg clents settings
+
+Xcursor*theme           : neutral
+Xcursor*size            : 24
+
+URxvt.fading            : 75
+URxvt.scrollBar         : false
+URxvt.scrollstyle       : plain
+URxvt.scrollBar_right   : true
+URxvt.visualBell        : true
+URxvt.font              : xft:Droid Sans Mono:pixelsize=12
+URxvt.transparent       : no
+URxvt.shading           : 40
+URxvt.geometry          : 100x25
+URxvt.cursorBlink       : true
+URxvt.cursorUnderline   : true
+URxvt.saveLines         : 65535
+URxvt.perl-ext-common   : default,tabbed,matcher
+
+URxvt.tabbed.tabbar-fg  : 16
+URxvt.tabbed.tabbar-bg  : 15
+URxvt.tabbed.tab-fg     : 15
+URxvt.tabbed.tab-bg     : 16
+
+URxvt.url-launcher      : /usr/bin/google-chrome-stable
+URxvt.matcher.button    : 1
+
+Xft.dpi                 : 96
+Xft.hinting             : true
+Xft.hintstyle           : hintsfull
+Xft.antialias           : true
+Xft.rgba                : none
